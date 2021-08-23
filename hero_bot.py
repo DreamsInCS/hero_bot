@@ -11,7 +11,7 @@ POWER_POST_WAIT_TIME = SEC_PER_MIN * 10
 DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
 
 flushed_face = "\U0001f633"
-botToken = os.getenv('HERO_TOKEN')
+bot_token = os.getenv('HERO_TOKEN')
 intents = discord.Intents.default()
 client = discord.Client(intents=intents)
 
@@ -128,4 +128,4 @@ async def itchy_daily_message(message):
     await asyncio.sleep(1.0)
     await message.channel.send("Isn't she cute!? " + flushed_face)
 
-client.run(botToken)
+client.run(bot_token)

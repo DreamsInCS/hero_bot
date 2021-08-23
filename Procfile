@@ -1,1 +1,1 @@
-web: python hero_bot.py
+worker: python hero_bot.py
