@@ -35,8 +35,16 @@ async def on_message(message):
         itchy_id = os.getenv('ITCHY_DISCORD_ID')
         william_id = os.getenv('WILLIAM_DISCORD_ID')
 
+        if itchy_id != None and william_id != None:
+            itchy_id = int(itchy_id)
+            william_id = int(william_id)
+
         if 'fella' in message.content.lower():
             yoan_id = os.getenv('YOAN_DISCORD_ID')
+
+            if yoan_id != None:
+                yoan_id = int(yoan_id)
+
             fella_elapsed_time = os.getenv('FELLA_ELAPSED_TIME')
 
             if fella_elapsed_time == None or time.time() - float(fella_elapsed_time) >= THREE_SEC:
@@ -127,5 +135,6 @@ async def itchy_daily_message(message):
     await message.channel.send("https://tenor.com/view/minion-but-despicable-me-pool-swim-gif-16227921")
     await asyncio.sleep(1.0)
     await message.channel.send("Isn't she cute!? " + flushed_face)
+
 
 client.run(bot_token)
