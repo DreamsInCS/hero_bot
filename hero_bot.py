@@ -92,6 +92,7 @@ async def bad_fella_message(message):
         await message.add_reaction(slight_smile)
         await asyncio.sleep(2.0)
         await message.channel.send("Well... you're not that uncool, I guess!")
+    elif int(num_bad_fellas) >= 3:
         os.environ['BAD_FELLAS'] = '0'
         await asyncio.sleep(1.0)
         await message.channel.send("OK.")
