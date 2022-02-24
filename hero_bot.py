@@ -6,20 +6,27 @@ import random
 import time
 
 THREE_SEC = 3.0
+DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
 SEC_PER_MIN = 60
 POWER_POST_WAIT_TIME = SEC_PER_MIN * 10
-DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
 
-flushed_face = "\U0001f633"
+# Emojis
+blue_heart = '\U0001f499'
+flushed_face = '\U0001f633'
+neutral_face = '\U0001f610'
+slight_smile = '\U0001f642'
+smirking_face = '\U0001f60f'
+weird_champ = '<:WeirdChamp:550166396449849344>'
+
 bot_token = os.getenv('HERO_TOKEN')
 intents = discord.Intents.default()
 client = discord.Client(intents=intents)
 
 fella_response_list = [
-    "Hold it there a moment. Did my fella just say... ***fella***?! \U0001f499",  # blue heart
+    "Hold it there a moment. Did my fella just say... ***fella***?!" + blue_heart,
     flushed_face,
     "https://tenor.com/view/happy-hero-omori-hero-emotions-omori-happy-hero-omori-omori-gif-20095992",
-    "https://www.youtube.com/watch?v=uX2mopyE5Z0",
+    "https://tenor.com/view/omniman-invincible-what-did-you-say-what-is17more-years-17more-years-gif-21913838",
     "Yay!"
 ]
 
@@ -85,8 +92,6 @@ async def bad_fella_message(message):
     num_bad_fellas = os.getenv('BAD_FELLAS')
 
     if num_bad_fellas == None or int(num_bad_fellas) < 1:
-        slight_smile = '\U0001f642'
-
         os.environ['BAD_FELLAS'] = '1'
         await asyncio.sleep(1.0)
         await message.add_reaction(slight_smile)
@@ -100,12 +105,9 @@ async def bad_fella_message(message):
         await message.channel.send("https://tenor.com/view/kanye-west-stare-staring-funny-gif-13590085")
         await asyncio.sleep(2.0)
 
-        neutral_face = '\U0001f610'
         await message.channel.send("Y'all are really trying, it's great! But... idk. Something's missing. " + neutral_face)
     else:
-        weird_champ = '<:WeirdChamp:550166396449849344>'
-        os.environ['BAD_FELLAS'] = str(int(
-            os.environ['BAD_FELLAS']) + 1)
+        os.environ['BAD_FELLAS'] = str(int(os.environ['BAD_FELLAS']) + 1)
 
         await asyncio.sleep(1.0)
         await message.add_reaction(weird_champ)
@@ -114,8 +116,6 @@ async def bad_fella_message(message):
 
 
 async def william_power_message(message):
-    smirking_face = '\U0001f60f'
-
     await asyncio.sleep(1.2)
     await message.channel.send("Erm...")
     await asyncio.sleep(2.0)
@@ -136,6 +136,9 @@ async def itchy_daily_message(message):
     await message.channel.send("https://tenor.com/view/minion-but-despicable-me-pool-swim-gif-16227921")
     await asyncio.sleep(1.0)
     await message.channel.send("Isn't she cute!? " + flushed_face)
+
+# async def jose_willpower_message(message):
+#     await
 
 
 client.run(bot_token)
