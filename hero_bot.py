@@ -8,7 +8,9 @@ import time
 THREE_SEC = 3.0
 DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
 SEC_PER_MIN = 60
-POWER_POST_WAIT_TIME = SEC_PER_MIN * 10
+MIN_PER_HOUR = 60
+HOURS_PER_DAY = 24
+POWER_POST_WAIT_TIME = SEC_PER_MIN * MIN_PER_HOUR * HOURS_PER_DAY
 
 # Emojis
 blue_heart = '\U0001f499'
@@ -26,7 +28,6 @@ fella_response_list = [
     "Hold it there a moment. Did my fella just say... ***fella***?!" + blue_heart,
     flushed_face,
     "https://tenor.com/view/happy-hero-omori-hero-emotions-omori-happy-hero-omori-omori-gif-20095992",
-    "https://tenor.com/view/omniman-invincible-what-did-you-say-what-is17more-years-17more-years-gif-21913838",
     "Yay!"
 ]
 
